@@ -1,16 +1,8 @@
 # frequency
 
-A new Flutter project.
+UNDER DEVELOPING
 
-## Getting Started
+*Social network/sito di incontri dove ci si conosce dalla cosa che ci lega di più, la musica.*
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Notion](https://www.notion.so/4dcf98c4f370469ab88cac397c503c05?v=9a95f6b065634faf9d34de0239992d5d)
