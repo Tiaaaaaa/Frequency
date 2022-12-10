@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
-// "https://i.pinimg.com/originals/fe/09/44/fe094463f75b775e3e28f6f8c47281e3.jpg"
-
   @override
   Widget build(BuildContext context) {
     Widget up = Column(
@@ -27,18 +25,18 @@ class ProfilePage extends StatelessWidget {
     // Only for display
     Widget song = Row(
       children: [
-        Column(
-          children: const [Text("Title"), Text("Album")],
+        const Text(
+          "Title - Album",
+          style: TextStyle(
+              color: Color.fromARGB(255, 131, 209, 59),
+              backgroundColor: Color.fromARGB(255, 185, 113, 64),
+              fontSize: 30),
         ),
-        const Icon(
-          Icons.music_note,
-          color: Color.fromRGBO(109, 234, 163, 1),
+        Image.asset(
+          'assets/images/avicii.jpg',
+          scale: 30,
         ),
       ],
-    );
-
-    Widget playlist = ListView(
-      children: [song, song, song],
     );
 
     return MaterialApp(
@@ -50,7 +48,15 @@ class ProfilePage extends StatelessWidget {
             ),
             body: Center(
               child: Column(
-                children: [up, playlist],
+                children: [
+                  up,
+                  SizedBox(
+                      height: 200,
+                      width: 200,
+                      child: ListView(
+                        children: [song, song, song],
+                      ))
+                ],
               ),
             )));
   }
