@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frequency/footer.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -39,25 +40,20 @@ class ProfilePage extends StatelessWidget {
       ],
     );
 
-    return MaterialApp(
-        title: "Profile page",
-        home: Scaffold(
-            appBar: AppBar(
-              title: const Text("Profile"),
-              centerTitle: true,
-            ),
-            body: Center(
-              child: Column(
-                children: [
-                  up,
-                  SizedBox(
-                      height: 200,
-                      width: 200,
-                      child: ListView(
-                        children: [song, song, song],
-                      ))
-                ],
-              ),
-            )));
+    return Scaffold(
+        bottomNavigationBar: Footer(),
+        body: Center(
+          child: Column(
+            children: [
+              up,
+              SizedBox(
+                  height: 100,
+                  width: 250,
+                  child: ListView(
+                    children: [song, song, song],
+                  ))
+            ],
+          ),
+        ));
   }
 }

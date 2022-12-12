@@ -1,37 +1,29 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
-import 'package:frequency/profile_page.dart';
+import 'package:frequency/footer.dart';
 
 class AccessPage extends StatelessWidget {
   const AccessPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Widget frequencyAccount = InkWell(
-        onTap: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const ProfilePage()),
-          );
-        },
-        child: Row(
-          children: const [
-            // Frequency's Logo
-            Padding(
-              padding: EdgeInsets.all(20),
-              child: Icon(
-                Icons.music_note,
-                color: Color.fromRGBO(109, 234, 163, 1),
-                size: 50,
-              ),
-            ),
-            Text(
-              "Frequency account",
-              style: TextStyle(
-                  color: Color.fromRGBO(109, 234, 163, 1), fontSize: 40),
-            )
-          ],
-        ));
+    Widget frequencyAccount = Row(
+      children: const [
+        // Frequency's Logo
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: Icon(
+            Icons.music_note,
+            color: Color.fromRGBO(109, 234, 163, 1),
+            size: 50,
+          ),
+        ),
+        Text(
+          "Frequency account",
+          style:
+              TextStyle(color: Color.fromRGBO(109, 234, 163, 1), fontSize: 40),
+        )
+      ],
+    );
 
     Widget googleAccount = InkWell(
         onTap: () {
@@ -70,24 +62,18 @@ class AccessPage extends StatelessWidget {
     const border =
         BorderSide(color: Color.fromRGBO(235, 120, 110, 0.5), width: 10);
 
-    return MaterialApp(
-        title: "Access Page",
-        home: Scaffold(
-            appBar: AppBar(
-              title: const Text("Accedi"),
-              centerTitle: true,
-              backgroundColor: const Color.fromRGBO(58, 158, 102, 1),
-            ),
-            body: Center(
-                heightFactor: 500,
-                child: Container(
-                  height: 300,
-                  width: 420,
-                  decoration: const BoxDecoration(
-                      border: Border(bottom: border, top: border)),
-                  child: Column(
-                    children: [frequencyAccount, googleAccount, appleIdAccount],
-                  ),
-                ))));
+    return Scaffold(
+        bottomNavigationBar: Footer(),
+        body: Center(
+            heightFactor: 500,
+            child: Container(
+              height: 300,
+              width: 500,
+              decoration: const BoxDecoration(
+                  border: Border(bottom: border, top: border)),
+              child: Column(
+                children: [frequencyAccount, googleAccount, appleIdAccount],
+              ),
+            )));
   }
 }
