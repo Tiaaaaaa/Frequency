@@ -60,7 +60,6 @@ class Song extends StatefulWidget {
 
 class _SongState extends State<Song> {
   bool _isFavorited = false;
-  int _favoriteCount = 41;
 
   @override
   Widget build(BuildContext context) {
@@ -93,10 +92,8 @@ class _SongState extends State<Song> {
   void _toggleFavorite() {
     setState(() {
       if (_isFavorited) {
-        _favoriteCount -= 1;
         _isFavorited = false;
       } else {
-        _favoriteCount += 1;
         _isFavorited = true;
       }
     });

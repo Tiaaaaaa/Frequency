@@ -1,29 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:frequency/footer.dart';
+import 'package:frequency/profile_page.dart';
 
 class AccessPage extends StatelessWidget {
   const AccessPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Widget frequencyAccount = Row(
-      children: [
-        // Frequency's Logo
-        Container(
-          padding: EdgeInsets.all(20),
-          child: const Icon(
-            Icons.music_note,
-            color: Color.fromRGBO(109, 234, 163, 1),
-            size: 50,
-          ),
-        ),
-        const Text(
-          "Frequency account",
-          style:
-              TextStyle(color: Color.fromRGBO(109, 234, 163, 1), fontSize: 40),
-        )
-      ],
-    );
+    Widget frequencyAccount = InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const ProfilePage()),
+          );
+        },
+        child: Row(
+          children: [
+            // Frequency's Logo
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: const Icon(
+                Icons.music_note,
+                color: Color.fromRGBO(109, 234, 163, 1),
+                size: 50,
+              ),
+            ),
+            const Text(
+              "Frequency account",
+              style: TextStyle(
+                  color: Color.fromRGBO(109, 234, 163, 1), fontSize: 40),
+            )
+          ],
+        ));
 
     Widget googleAccount = InkWell(
         onTap: () {
@@ -63,7 +69,6 @@ class AccessPage extends StatelessWidget {
         BorderSide(color: Color.fromRGBO(235, 120, 110, 0.5), width: 10);
 
     return Scaffold(
-        bottomNavigationBar: const Footer(),
         body: Center(
             heightFactor: 500,
             child: Container(
