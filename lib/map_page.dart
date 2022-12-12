@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frequency/footer.dart';
+import 'package:frequency/variabiles.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -26,12 +27,24 @@ class MapPage extends StatelessWidget {
               child: Text("$SCREENWIDTH  $SCREENHEIGHT"),
               onTap: () => {},
             )),
-        Bubble(Position((SCREENWIDTH / 2 )- 40,( SCREENHEIGHT / 2)-40), "IO"),
+        Bubble(
+            Position((SCREENWIDTH / 2) - 40, (SCREENHEIGHT / 2) - 40),
+            "IO",
+            Image.asset(
+              'assets/images/avicii.jpg',
+              fit: BoxFit.cover,
+            )),
       ],
     );
 
     for (var p in positions) {
-      s.children.add(Bubble(p, "name"));
+      s.children.add(Bubble(
+          p,
+          "name",
+          Image.asset(
+            'assets/images/avicii.jpg',
+            fit: BoxFit.cover,
+          )));
     }
 
     return Scaffold(
@@ -39,8 +52,7 @@ class MapPage extends StatelessWidget {
         body: FractionallySizedBox(
           heightFactor: 0.9,
           widthFactor: 1,
-          child:
-              Container(color: const Color.fromRGBO(70, 69, 69, 1), child: s),
+          child: Container(color: backgroundColor, child: s),
         ));
   }
 }
@@ -49,8 +61,9 @@ class Bubble extends StatelessWidget {
   Position pos;
   double DIMENSION = 80;
   String _name = "";
+  Image image;
 
-  Bubble(this.pos, String name, {super.key}) {
+  Bubble(this.pos, String name, this.image, {super.key}) {
     _name = name;
   }
 
@@ -64,13 +77,17 @@ class Bubble extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
+                  clipBehavior: Clip.hardEdge,
                   height: DIMENSION,
                   width: DIMENSION,
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.blue)),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.blue,
+                      border: Border.all(color: Colors.red, width: 5)),
+                  child: image),
               Text(
                 _name,
-                style: TextStyle(color: Colors.blue, fontSize: 20),
+                style: TextStyle(color: secundaryColor, fontSize: 20),
               )
             ],
           ))

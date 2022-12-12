@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frequency/map_page.dart';
 import 'package:frequency/profile_page.dart';
+import 'package:frequency/variabiles.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -9,7 +10,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 100,
-        color: const Color.fromRGBO(109, 234, 163, 1),
+        color: primary,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
