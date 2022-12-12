@@ -7,7 +7,10 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return FractionallySizedBox(
+      heightFactor: 0.1,
+      widthFactor: 1,
+      child: Container(
         height: 100,
         color: const Color.fromRGBO(109, 234, 163, 1),
         child: Row(
@@ -46,6 +49,6 @@ class Footer extends StatelessWidget {
                   size: 40,
                 )),
           ],
-        ));
+        )));
   }
 }
