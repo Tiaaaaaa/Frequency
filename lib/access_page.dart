@@ -7,17 +7,17 @@ class AccessPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget frequencyAccount = Row(
-      children: const [
+      children: [
         // Frequency's Logo
-        Padding(
+        Container(
           padding: EdgeInsets.all(20),
-          child: Icon(
+          child: const Icon(
             Icons.music_note,
             color: Color.fromRGBO(109, 234, 163, 1),
             size: 50,
           ),
         ),
-        Text(
+        const Text(
           "Frequency account",
           style:
               TextStyle(color: Color.fromRGBO(109, 234, 163, 1), fontSize: 40),
@@ -31,7 +31,7 @@ class AccessPage extends StatelessWidget {
         },
         child: Row(
           children: [
-            Padding(
+            Container(
               padding: const EdgeInsets.all(20),
               child: Image.asset("assets/images/google-logo.png", height: 50),
             ),
@@ -47,7 +47,7 @@ class AccessPage extends StatelessWidget {
         onTap: () => {print("Apple")},
         child: Row(
           children: [
-            Padding(
+            Container(
               padding: const EdgeInsets.all(20),
               child: Image.asset("assets/images/apple-logo.png", height: 50),
             ),
@@ -63,7 +63,7 @@ class AccessPage extends StatelessWidget {
         BorderSide(color: Color.fromRGBO(235, 120, 110, 0.5), width: 10);
 
     return Scaffold(
-        bottomNavigationBar: Footer(),
+        bottomNavigationBar: const Footer(),
         body: Center(
             heightFactor: 500,
             child: Container(
