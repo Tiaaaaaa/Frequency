@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frequency/profile_page.dart';
+import 'package:frequency/map_page.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -20,14 +21,13 @@ class Footer extends StatelessWidget {
                   );
                 },
                 child: const Icon(
-                  Icons.portrait,
+                  Icons.message,
                   size: 40,
                 )),
             InkWell(
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => const ProfilePage()),
+                    MaterialPageRoute(builder: (context) => MapPage()),
                   );
                 },
                 child: const Icon(
@@ -42,9 +42,9 @@ class Footer extends StatelessWidget {
                   );
                 },
                 child: const Icon(
-                  Icons.message,
+                  Icons.portrait,
                   size: 40,
-                ))
+                )),
           ],
         ));
   }
