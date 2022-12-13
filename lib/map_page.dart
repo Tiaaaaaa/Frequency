@@ -7,15 +7,14 @@ class MapPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double SCREENHEIGHT = MediaQuery.of(context).size.height;
+    double SCREENHEIGHT = MediaQuery.of(context).size.height*0.7;
     double SCREENWIDTH = MediaQuery.of(context).size.width;
 
     var positions = [
-      Position(100, 500),
-      Position(200, 50),
-      Position(150, 180),
-      Position(400, 450),
-      Position(380, 180),
+      Position(0.8, 0.8, SCREENWIDTH, SCREENHEIGHT),
+      Position(0.41, 0.36, SCREENWIDTH, SCREENHEIGHT),
+      Position(0.71, 0.61, SCREENWIDTH, SCREENHEIGHT),
+      Position(0.21, 0.5, SCREENWIDTH, SCREENHEIGHT),
     ];
 
     Stack s = Stack(
@@ -28,7 +27,7 @@ class MapPage extends StatelessWidget {
               onTap: () => {},
             )),
         Bubble(
-            Position((SCREENWIDTH / 2) - 40, (SCREENHEIGHT / 2) - 40),
+            Position(0.5, 0.5, SCREENWIDTH, SCREENHEIGHT),
             "IO",
             Image.asset(
               'assets/images/avicii.jpg',
@@ -71,8 +70,8 @@ class Bubble extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Positioned(
-          bottom: pos.getY(),
-          left: pos.getX(),
+          bottom: pos.getY() - DIMENSION / 2,
+          left: pos.getX() - DIMENSION / 2,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -98,8 +97,14 @@ class Bubble extends StatelessWidget {
 class Position {
   double x = 0;
   double y = 0;
+  double screenWidth = 0;
+  double screenHeight = 0;
 
-  Position(this.x, this.y);
+  Position(double fractionalX, double fractionalY, this.screenWidth,
+      this.screenHeight) {
+    setX(fractionalX);
+    setY(fractionalY);
+  }
 
   double getX() {
     return x;
@@ -109,11 +114,14 @@ class Position {
     return y;
   }
 
-  void setX(double x) {
-    this.x = x;
+  void setX(double fractionalX) {
+    if (fractionalX < 0 || fractionalX > 1) return;
+
+    x = fractionalX * screenWidth;
   }
 
-  void setY(double y) {
-    this.y = y;
+  void setY(double fractionalY) {
+    if (fractionalY < 0 || fractionalY > 1) return;
+    y = fractionalY * screenHeight;
   }
 }

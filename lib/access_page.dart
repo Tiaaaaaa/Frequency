@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frequency/profile_page.dart';
 import 'package:frequency/variabiles.dart';
-import 'package:frequency/variabiles.dart';
 
 class AccessPage extends StatelessWidget {
   const AccessPage({super.key});
