@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:frequency/map_page.dart';
 import 'package:frequency/profile_page.dart';
+import 'package:frequency/variabiles.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});
@@ -8,7 +10,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 100,
-        color: const Color.fromRGBO(109, 234, 163, 1),
+        color: primary,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -20,14 +22,13 @@ class Footer extends StatelessWidget {
                   );
                 },
                 child: const Icon(
-                  Icons.portrait,
+                  Icons.message,
                   size: 40,
                 )),
             InkWell(
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => const ProfilePage()),
+                    MaterialPageRoute(builder: (context) => const MapPage()),
                   );
                 },
                 child: const Icon(
@@ -42,9 +43,9 @@ class Footer extends StatelessWidget {
                   );
                 },
                 child: const Icon(
-                  Icons.message,
+                  Icons.portrait,
                   size: 40,
-                ))
+                )),
           ],
         ));
   }
