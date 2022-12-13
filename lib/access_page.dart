@@ -7,10 +7,13 @@ class AccessPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double SCREENHEIGHT = MediaQuery.of(context).size.height;
+    double SCREENWIDTH = MediaQuery.of(context).size.width;
+
     Widget frequencyAccount = InkWell(
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const ProfilePage()),
+            MaterialPageRoute(builder: (context) => ProfilePage()),
           );
         },
         child: Row(
@@ -21,12 +24,13 @@ class AccessPage extends StatelessWidget {
               child: Icon(
                 Icons.music_note,
                 color: secundaryColor,
-                size: 50,
+                size: 0.1 * SCREENWIDTH,
               ),
             ),
             Text(
               "Frequency account",
-              style: TextStyle(color: secundaryColor, fontSize: 40),
+              style: TextStyle(
+                  color: secundaryColor, fontSize: 0.04 * SCREENHEIGHT),
             )
           ],
         ));
@@ -39,11 +43,13 @@ class AccessPage extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(20),
-              child: Image.asset("assets/images/google-logo.png", height: 50),
+              child: Image.asset("assets/images/google-logo.png",
+                  height: 0.1 * SCREENWIDTH),
             ),
             Text(
               "Google account",
-              style: TextStyle(color: secundaryColor, fontSize: 40),
+              style: TextStyle(
+                  color: secundaryColor, fontSize: 0.04 * SCREENHEIGHT),
             )
           ],
         ));
@@ -54,11 +60,13 @@ class AccessPage extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(20),
-              child: Image.asset("assets/images/apple-logo.png", height: 50),
+              child: Image.asset("assets/images/apple-logo.png",
+                  height: 0.1 * SCREENWIDTH),
             ),
             Text(
               "Apple account",
-              style: TextStyle(color: secundaryColor, fontSize: 40),
+              style: TextStyle(
+                  color: secundaryColor, fontSize: 0.04 * SCREENHEIGHT),
             )
           ],
         ));
@@ -68,15 +76,14 @@ class AccessPage extends StatelessWidget {
 
     return Scaffold(
         body: Center(
-            heightFactor: 500,
             child: Container(
-              height: 300,
-              width: 500,
-              decoration: const BoxDecoration(
-                  border: Border(bottom: border, top: border)),
-              child: Column(
-                children: [frequencyAccount, googleAccount, appleIdAccount],
-              ),
-            )));
+      height: 0.3 * SCREENHEIGHT,
+      width: SCREENWIDTH,
+      decoration:
+          const BoxDecoration(border: Border(bottom: border, top: border)),
+      child: Column(
+        children: [frequencyAccount, googleAccount, appleIdAccount],
+      ),
+    )));
   }
 }

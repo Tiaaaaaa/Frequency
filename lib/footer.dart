@@ -10,7 +10,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 100,
-        color: primary,
+        color: primaryColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -18,7 +18,7 @@ class Footer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (context) => const ProfilePage()),
+                        builder: (context) => ProfilePage()),
                   );
                 },
                 child: const Icon(
@@ -39,7 +39,7 @@ class Footer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                        builder: (context) => const ProfilePage()),
+                        builder: (context) => ProfilePage()),
                   );
                 },
                 child: const Icon(

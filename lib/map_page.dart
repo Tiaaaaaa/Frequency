@@ -23,7 +23,7 @@ class MapPage extends StatelessWidget {
             bottom: 20,
             right: 20,
             child: InkWell(
-              child: Text("$SCREENWIDTH  $SCREENHEIGHT"),
+              child: Text("Transmit"),
               onTap: () => {},
             )),
         Bubble(

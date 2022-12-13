@@ -1,53 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:frequency/footer.dart';
+import 'package:frequency/variabiles.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  Table table = Table(
+    border: TableBorder.all(width: 3, color: Colors.black),
+    columnWidths: const <int, TableColumnWidth>{
+      0: FlexColumnWidth(),
+      1: FlexColumnWidth(),
+      2: FlexColumnWidth(),
+    },
+    children: [
+      TableRow(children: [
+        Container(
+          height: 32,
+          color: Colors.green,
+        ),
+        TableCell(
+          verticalAlignment: TableCellVerticalAlignment.top,
+          child: Container(
+            height: 32,
+            width: 32,
+            color: Colors.red,
+          ),
+        ),
+        Container(
+          height: 64,
+          color: Colors.blue,
+        ),
+      ])
+    ],
+  );
+
+  ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final SCREENHEIGHT = MediaQuery.of(context).size.height * 0.7;
+    final SCREENWIDTH = MediaQuery.of(context).size.width;
+
     Widget up = Column(
       children: [
         Image.asset(
           'assets/images/avicii.jpg',
           scale: 1,
         ),
-        const Text(
+        Text(
           "Username",
-          style:
-              TextStyle(color: Color.fromARGB(255, 131, 209, 59), fontSize: 50),
+          style: TextStyle(color: primaryColor, fontSize: 30),
         )
       ],
     );
 
     return Scaffold(
-      bottomNavigationBar: const Footer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          up,
-          SizedBox(
-              height: 250,
-              child: ListView(
-                children: const [
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song(),
-                  Song()
-                ],
-              ))
-        ],
-      ),
-    );
+        bottomNavigationBar: const Footer(),
+        body: Center(
+            child: Container(
+          width: SCREENWIDTH - (SCREENWIDTH / 5),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [up, table],
+          ),
+        )));
+  }
+
+  void addToTable(Image im) {
+    table.children.add(TableRow(children: [im, im, im]));
   }
 }
 
