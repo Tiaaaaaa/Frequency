@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frequency/direct_messages.dart';
 import 'package:frequency/map_page.dart';
 import 'package:frequency/profile_page.dart';
 import 'package:frequency/variabiles.dart';
@@ -17,8 +18,7 @@ class Footer extends StatelessWidget {
             InkWell(
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => ProfilePage()),
+                    MaterialPageRoute(builder: (context) => DMPage()),
                   );
                 },
                 child: const Icon(
@@ -38,8 +38,7 @@ class Footer extends StatelessWidget {
             InkWell(
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => ProfilePage()),
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
                   );
                 },
                 child: const Icon(
