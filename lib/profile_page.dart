@@ -11,23 +11,33 @@ class ProfilePage extends StatelessWidget {
     final SCREENWIDTH = MediaQuery.of(context).size.width;
 
     Widget header = Row(
-      children: [
-        Image.asset(
-          'assets/images/avicii.jpg',
-          scale: 100,
+      children: const [
+        CircleAvatar(
+          backgroundImage: AssetImage('assets/images/avicii.jpg'),
+          radius: 10,
         ),
-        Text("data")
+
+        /*  ClipRRect(
+          borderRadius: BorderRadius.circular(7.0),
+          child: Image.asset(
+            'assets/images/avicii.jpg',
+            scale: 20,
+          ),
+        ),*/
+        Text("  Username")
       ],
     );
 
     return Scaffold(
         bottomNavigationBar: const Footer(),
         body: CustomScrollView(
-          slivers: <Widget>[
+          slivers: [
             SliverAppBar(
               pinned: true,
-              expandedHeight: 250.0,
+              expandedHeight: 250,
+              backgroundColor: backgroundColor,
               flexibleSpace: FlexibleSpaceBar(
+                background: sampleImage,
                 title: header,
               ),
             ),
