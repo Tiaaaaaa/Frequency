@@ -3,70 +3,65 @@ import 'package:frequency/footer.dart';
 import 'package:frequency/variabiles.dart';
 
 class ProfilePage extends StatelessWidget {
-  Table table = Table(
-    border: TableBorder.all(width: 3, color: Colors.black),
-    columnWidths: const <int, TableColumnWidth>{
-      0: FlexColumnWidth(),
-      1: FlexColumnWidth(),
-      2: FlexColumnWidth(),
-    },
-    children: [
-      TableRow(children: [
-        Container(
-          height: 32,
-          color: Colors.green,
-        ),
-        TableCell(
-          verticalAlignment: TableCellVerticalAlignment.top,
-          child: Container(
-            height: 32,
-            width: 32,
-            color: Colors.red,
-          ),
-        ),
-        Container(
-          height: 64,
-          color: Colors.blue,
-        ),
-      ])
-    ],
-  );
-
-  ProfilePage({super.key});
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final SCREENHEIGHT = MediaQuery.of(context).size.height * 0.7;
     final SCREENWIDTH = MediaQuery.of(context).size.width;
 
-    Widget up = Column(
-      children: [
-        Image.asset(
-          'assets/images/avicii.jpg',
-          scale: 1,
+    Widget header = Row(
+      children: const [
+        CircleAvatar(
+          backgroundImage: AssetImage('assets/images/avicii.jpg'),
+          radius: 10,
         ),
-        Text(
-          "Username",
-          style: TextStyle(color: primaryColor, fontSize: 30),
-        )
+
+        /*  ClipRRect(
+          borderRadius: BorderRadius.circular(7.0),
+          child: Image.asset(
+            'assets/images/avicii.jpg',
+            scale: 20,
+          ),
+        ),*/
+        Text("  Username")
       ],
     );
 
     return Scaffold(
         bottomNavigationBar: const Footer(),
-        body: Center(
-            child: Container(
-          width: SCREENWIDTH - (SCREENWIDTH / 5),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [up, table],
-          ),
-        )));
-  }
-
-  void addToTable(Image im) {
-    table.children.add(TableRow(children: [im, im, im]));
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              pinned: true,
+              expandedHeight: 250,
+              backgroundColor: backgroundColor,
+              flexibleSpace: FlexibleSpaceBar(
+                background: sampleImage,
+                title: header,
+              ),
+            ),
+            SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 200.0,
+                mainAxisSpacing: 10.0,
+                mainAxisExtent: 100.0,
+                crossAxisSpacing: 0.0,
+                childAspectRatio: 1.0,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    color: Colors.blue[100 * (index % 9)],
+                    child: Text('Post number: $index'),
+                  );
+                },
+                childCount: 200,
+              ),
+            ),
+          ],
+        ));
   }
 }
 
@@ -87,7 +82,7 @@ class _SongState extends State<Song> {
         child: Row(
           children: [
             const Text(
-              "The Days - The Days/Nights",
+              "The Days - The Days",
               style: TextStyle(
                   color: Color.fromARGB(255, 131, 209, 59), fontSize: 30),
             ),
