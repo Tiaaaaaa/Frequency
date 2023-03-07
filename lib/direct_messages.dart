@@ -19,6 +19,9 @@ class DMPage extends StatelessWidget {
       ],
     );
 
+    BorderSide bs = BorderSide(color: borderColor, width: 2);
+    Border border = Border(bottom: bs, left: bs, right: bs, top: bs);
+
     Widget chats = CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -41,7 +44,8 @@ class DMPage extends StatelessWidget {
                 },
                 child: Container(
                   alignment: Alignment.center,
-                  color: Colors.lightBlue[100 * (index % 9)],
+                  decoration:
+                      BoxDecoration(border: border, color: primaryColor),
                   child: Text(index.toString()),
                 ),
               );
